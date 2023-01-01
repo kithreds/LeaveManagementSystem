@@ -11,11 +11,35 @@
         body {
             background: #eee;
         }
+          .page-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.5);
+    z-index: 1040;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
     </style>
+    <script>
+    window.addEventListener('load', function() {
+    	  document.querySelector('.page-loader').remove();
+    	});
+
+    </script>
 </head>
 
 <body>
     <!--  -->
+    <div class="page-loader">
+  <div class="d-flex align-items-center">
+    <strong>Loading...</strong>
+    <div class="spinner-border ml-auto" role="status" aria-hidden="true"></div>
+  </div>
+</div>
     <section class="vh-100">
         <div class="container py-5 h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">

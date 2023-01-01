@@ -18,28 +18,28 @@
 <body>
     <div class="d-flex" id="wrapper">
         <!-- Sidebar -->
-        <div class="bg-white" id="sidebar-wrapper">
+          <div class="bg-white" id="sidebar-wrapper">
 
             <div class="list-group list-group-flush my-3 mt-5">
-                <a href="user dashboard.html"
+                 <a  href="/employeeDashboard?id=${employee.id}"
                     class="list-group-item list-group-item-action bg-transparent second-text active me-2"><i
                         class="fas fa-tachometer-alt "></i> Dashboard</a>
 
-                <a href="leaveform emp.html"
+                 <a  href="/viewLeaveformEmployee?id=${employee.id}"
                     class="list-group-item list-group-item-action bg-transparent second-text fw-bold me-2"><i
                         class="bi bi-house-add"></i> Apply Leave</a>
 
 
-                <a href="view holiday emp.html"
+                 <a  href="/viewHolidayEmployee?id=${employee.id}"
                     class="list-group-item list-group-item-action bg-transparent second-text fw-bold me-2"><i
                         class="bi bi-calendar-day"></i> View Holidays</a>
 
-                <a href="viewProjects emp.html"
+                <a  href="/viewProjectsEmployee?id=${employee.id}"
                     class="list-group-item list-group-item-action bg-transparent second-text fw-bold me-2"><i
                         class="bi bi-card-list "></i> View Projects </a>
 
 
-                <a href="resetpassword emp.html"
+               <a  href="/viewResetPasswordEmployee?id=${employee.id}"
                     class="list-group-item list-group-item-action bg-transparent second-text fw-bold me-2"><i
                         class="bi bi-key-fill"></i> Reset Password</a>
 
@@ -69,9 +69,9 @@
                                 role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="fas fa-user me-2"></i>Employee
                             </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="userProfile.html">Profile</a></l>
-                                <li><a class="dropdown-item" href="#">Logout</a></li>
+                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="employeeProfile?id=${employee.id}">Profile</a></li>
+                                <li><a class="dropdown-item" href="/logout">Logout</a></li>
                             </ul>
                         </li>
                     </ul>

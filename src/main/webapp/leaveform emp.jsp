@@ -16,28 +16,28 @@
 <body>
     <div class="d-flex" id="wrapper">
         <!-- Sidebar -->
-        <div class="bg-white" id="sidebar-wrapper">
+          <div class="bg-white" id="sidebar-wrapper">
 
             <div class="list-group list-group-flush my-3 mt-5">
-                <a href="user dashboard.html"
+                 <a  href="/employeeDashboard?id=${employee.id}"
                     class="list-group-item list-group-item-action bg-transparent second-text active me-2"><i
                         class="fas fa-tachometer-alt "></i> Dashboard</a>
 
-                <a href="leaveform emp.html"
+                 <a  href="/viewLeaveformEmployee?id=${employee.id}"
                     class="list-group-item list-group-item-action bg-transparent second-text fw-bold me-2"><i
                         class="bi bi-house-add"></i> Apply Leave</a>
 
 
-                <a href="view holiday emp.html"
+                 <a  href="/viewHolidayEmployee?id=${employee.id}"
                     class="list-group-item list-group-item-action bg-transparent second-text fw-bold me-2"><i
                         class="bi bi-calendar-day"></i> View Holidays</a>
 
-                <a href="viewProjects emp.html"
+                <a  href="/viewProjectsEmployee?id=${employee.id}"
                     class="list-group-item list-group-item-action bg-transparent second-text fw-bold me-2"><i
                         class="bi bi-card-list "></i> View Projects </a>
 
 
-                <a href="resetpassword emp.html"
+               <a  href="/viewResetPasswordEmployee?id=${employee.id}"
                     class="list-group-item list-group-item-action bg-transparent second-text fw-bold me-2"><i
                         class="bi bi-key-fill"></i> Reset Password</a>
 
@@ -66,9 +66,9 @@
                                 role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="fas fa-user me-2"></i>Employee
                             </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="userProfile.html">Profile</a></l>
-                                <li><a class="dropdown-item" href="#">Logout</a></li>
+                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="employeeProfile?id=${employee.id}">Profile</a></li>
+                                <li><a class="dropdown-item" href="/logout">Logout</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -80,33 +80,37 @@
             <!-- page content main -->
             <div class="container shadow" style="margin-top: 60px;">
                 <div class="title">Apply Leave</div>
-                <form action="leave" onsubmit="return validateForm()">
+                <form action="/applyLeaveEmployee" method="POST" onsubmit="return validateForm()">
                     <div class="Employe-Details">
-                        <div class="input-box">
+                        <!-- <div class="input-box">
                             <span class="details">Employee Id</span>
                             <input type="number" id="id" name="id" class="form-control" readonly>
-                        </div>
-
+                        </div>-->
+				<input type="hidden" name="status" value="pending" class="form-control" readonly>
+				<input type="hidden" id="id" name="empId" value="${employee.id}" class="form-control" readonly>
+				<input type="hidden" id="id" name="ids" value="${employee.id}" class="form-control" readonly>
+				<input type="hidden" id="id" name="role" value="${employee.role}" class="form-control" readonly>
+				<input type="hidden" id="id" name="reportingmanager" value="${employee.reportingmanager}" class="form-control" readonly>
                         <div class="input-box">
                             <span class="details">Email</span>
-                            <input type="email" id="email" name="email" class="form-control">
+                            <input type="email" id="email" name="email" value="${employee.email}" class="form-control" readonly>
                             <span id="emailError" class="text-danger"></span>
-                        </div>
+                        </div> 
 
                         <div class="input-box">
                             <span class="details">From Date</span>
-                            <input type="date" id="from" name="from" class="form-control datepicker">
+                            <input type="date" id="from" name="fromDate" class="form-control datepicker">
                             <span id="fromError" class="text-danger"></span>
                         </div>
                         <div class="input-box">
                             <span class="details">To Date</span>
-                            <input type="date" id="To" name="To" class="form-control ">
+                            <input type="date" id="To" name="endDate" class="form-control ">
                             <span id="ToError" class="text-danger"></span>
                         </div>
 
                         <div class="input-box">
                             <span class="details">Total Days</span>
-                            <input type="text" id="Total" name="Total" class="form-control " readonly>
+                            <input type="text" id="Total" name="totalDays" class="form-control " readonly>
                             <!-- <span id="caldate" class="text-danger"></span> -->
                         </div>
 
@@ -114,7 +118,7 @@
 
                         <div class="input-box">
                             <span class="details">Leave Type</span>
-                            <select name="leave type" id="leave type" class="form-control">
+                            <select name="leaveType" id="leave type" class="form-control">
                                 <option value="SickLeave">Sick Leave</option>
                                 <option value="CasualLeave">Casual Leave</option>
                                 <option value="PersonalLeave">Personal Leave</option>

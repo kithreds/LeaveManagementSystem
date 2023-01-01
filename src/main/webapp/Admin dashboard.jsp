@@ -10,12 +10,35 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
     <link rel="stylesheet" href="css/adminstyle.css" />
+	<style>
+	.page-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.5);
+    z-index: 1040;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+	</style>
+<script>
+    window.addEventListener('load', function() {
+    	  document.querySelector('.page-loader').remove();
+    	});
 
-
+    </script>
     <title>Admin Dashboard | LMS</title>
 </head>
 
 <body>
+   <div class="page-loader">
+  <div class="d-flex align-items-center">
+    <strong>Loading...</strong>
+    <div class="spinner-border ml-auto" role="status" aria-hidden="true"></div>
+  </div>
+</div>
     <div class="d-flex" id="wrapper">
         <!-- Sidebar -->
        <div class="bg-white" id="sidebar-wrapper">

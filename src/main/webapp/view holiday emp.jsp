@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,28 +16,28 @@
 <body>
     <div class="d-flex" id="wrapper">
         <!-- Sidebar -->
-        <div class="bg-white" id="sidebar-wrapper">
+          <div class="bg-white" id="sidebar-wrapper">
 
             <div class="list-group list-group-flush my-3 mt-5">
-                <a href="user dashboard.html"
+                 <a  href="/employeeDashboard?id=${employee.id}"
                     class="list-group-item list-group-item-action bg-transparent second-text active me-2"><i
                         class="fas fa-tachometer-alt "></i> Dashboard</a>
 
-                <a href="leaveform emp.html"
+                 <a  href="/viewLeaveformEmployee?id=${employee.id}"
                     class="list-group-item list-group-item-action bg-transparent second-text fw-bold me-2"><i
                         class="bi bi-house-add"></i> Apply Leave</a>
 
 
-                <a href="view holiday emp.html"
+                 <a  href="/viewHolidayEmployee?id=${employee.id}"
                     class="list-group-item list-group-item-action bg-transparent second-text fw-bold me-2"><i
                         class="bi bi-calendar-day"></i> View Holidays</a>
 
-                <a href="viewProjects emp.html"
+                <a  href="/viewProjectsEmployee?id=${employee.id}"
                     class="list-group-item list-group-item-action bg-transparent second-text fw-bold me-2"><i
                         class="bi bi-card-list "></i> View Projects </a>
 
 
-                <a href="resetpassword emp.html"
+               <a  href="/viewResetPasswordEmployee?id=${employee.id}"
                     class="list-group-item list-group-item-action bg-transparent second-text fw-bold me-2"><i
                         class="bi bi-key-fill"></i> Reset Password</a>
 
@@ -65,52 +66,37 @@
                                 role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="fas fa-user me-2"></i>employee
                             </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="userProfile.html">Profile</a></l>
-                                <li><a class="dropdown-item" href="#">Logout</a></li>
+                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="employeeProfile?id=${employee.id}">Profile</a></li>
+                                <li><a class="dropdown-item" href="/logout">Logout</a></li>
                             </ul>
                         </li>
                     </ul>
                 </div>
             </nav>
             <div class="container">
-                <div class="row my-5">
+                <div class="row my-3">
                     <h3 class="fs-4 mb-3">Holidays</h3>
                     <div class="col">
                         <table class="table bg-white rounded shadow-sm  table-hover">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Sr. No</th>
-                                    <th scope="col">Holiday Name</th>
-                                    <th scope="col">Date</th>
+                        <thead>
+                            <tr>
+                                <th scope="col">Sr. No</th>
+                                <th scope="col">Holiday Name</th>
+                                <th scope="col">dates</th>
+                               
+                            </tr>
+                        </thead>
+                        <c:forEach items="${holiday}" var="holiday">
+						<tbody>
+							<tr>
+								<th scope="row">${holiday.hid}</th>
+								<td>${holiday.occasion}</td>
+								<td>${holiday.dates}</td>
+							</tr>
 
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Independence day</td>
-                                    <td>15/08/2022</td>
-
-                                </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>Republic day</td>
-                                    <td>26/01/2022</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">3</th>
-                                    <td>Independence day</td>
-                                    <td>15/08/2022</td>
-
-                                </tr>
-                                <tr>
-                                    <th scope="row">4</th>
-                                    <td>Republic day</td>
-                                    <td>26/01/2022</td>
-                                </tr>
-
-                            </tbody>
+						</tbody>
+					</c:forEach>
                         </table>
                     </div>
                 </div>

@@ -16,6 +16,13 @@ public interface LeaveRepository extends JpaRepository<Leave,Integer> {
 
 	List<Leave> findByRoleAndStatus(String role, String status);
 
+	List<Leave> findByRoleInAndStatusAndReportingmanager(List<String> asList, String status, String name);
+
+	List<Leave> findByRoleAndStatusAndReportingmanager(String role, String status, String reportingmanager);
+
+
+	
+
 	
 
 }

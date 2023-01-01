@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,25 +19,25 @@
         <div class="bg-white" id="sidebar-wrapper">
 
             <div class="list-group list-group-flush my-3 mt-5">
-                <a href="user dashboard.html"
+                 <a  href="/employeeDashboard?id=${employee.id}"
                     class="list-group-item list-group-item-action bg-transparent second-text active me-2"><i
                         class="fas fa-tachometer-alt "></i> Dashboard</a>
 
-                <a href="leaveform emp.html"
+                 <a  href="/viewLeaveformEmployee?id=${employee.id}"
                     class="list-group-item list-group-item-action bg-transparent second-text fw-bold me-2"><i
                         class="bi bi-house-add"></i> Apply Leave</a>
 
 
-                <a href="view holiday emp.html"
+                 <a  href="/viewHolidayEmployee?id=${employee.id}"
                     class="list-group-item list-group-item-action bg-transparent second-text fw-bold me-2"><i
                         class="bi bi-calendar-day"></i> View Holidays</a>
 
-                <a href="viewProjects emp.html"
+                <a  href="/viewProjectsEmployee?id=${employee.id}"
                     class="list-group-item list-group-item-action bg-transparent second-text fw-bold me-2"><i
                         class="bi bi-card-list "></i> View Projects </a>
 
 
-                <a href="resetpassword emp.html"
+               <a  href="/viewResetPasswordEmployee?id=${employee.id}"
                     class="list-group-item list-group-item-action bg-transparent second-text fw-bold me-2"><i
                         class="bi bi-key-fill"></i> Reset Password</a>
 
@@ -66,9 +67,9 @@
                                 role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 <i class="fas fa-user me-2"></i>employee
                             </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="userProfile.html">Profile</a></l>
-                                <li><a class="dropdown-item" href="#">Logout</a></li>
+                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="employeeProfile?id=${employee.id}">Profile</a></li>
+                                <li><a class="dropdown-item" href="/logout">Logout</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -77,137 +78,134 @@
 
 
 
-            <div class="container-fluid px-4">
-                <div class="row g-3 my-2">
-                    <div class="col-md-3">
-                        <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
-                            <div>
+			<div class="container-fluid px-4">
+				<div class="row g-3 my-2">
+					<div class="col-md-3">
+						<div
+							class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
+							<div>
 
-                                <p class="fs-5">Sick Leave</p>
-                                <p class="fs-5">Available :</p>
-                            </div>
-                            <i class="bi bi-shop fa-3x primary-text border rounded secondary-bg p-3"></i>
+								<p class="fs-5">Sick Leave</p>
+								<p class="fs-5">Available :${employee.sickleave}</p>
+							</div>
+							<i
+								class="bi bi-shop fa-3x primary-text border rounded secondary-bg p-3"></i>
 
-                        </div>
-                    </div>
+						</div>
+					</div>
 
-                    <div class="col-md-3">
-                        <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
-                            <div>
+					<div class="col-md-3">
+						<div
+							class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
+							<div>
 
-                                <p class="fs-5">Casual Leave</p>
-                                <p class="fs-5">Available :</p>
-                            </div>
-                            <i class="bi bi-briefcase fa-3x primary-text border rounded secondary-bg p-3"></i>
+								<p class="fs-5">Casual Leave</p>
+								<p class="fs-5">Available :${employee.casualleave}</p>
+							</div>
+							<i
+								class="bi bi-briefcase fa-3x primary-text border rounded secondary-bg p-3"></i>
 
-                        </div>
-                    </div>
+						</div>
+					</div>
 
-                    <div class="col-md-3">
-                        <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
-                            <div>
-                                <p class="fs-5">Personal Leave</p>
-                                <p class="fs-5">Available :</p>
-                            </div>
-                            <i class="bi bi-calendar-plus fa-3x primary-text border rounded secondary-bg p-3"></i>
+					<div class="col-md-3">
+						<div
+							class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
+							<div>
+								<p class="fs-5">Personal Leave</p>
+								<p class="fs-5">Available :${employee.personalleave}</p>
+							</div>
+							<i
+								class="bi bi-calendar-plus fa-3x primary-text border rounded secondary-bg p-3"></i>
 
-                        </div>
-                    </div>
+						</div>
+					</div>
 
-                    <div class="col-md-3">
-                        <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
-                            <div>
-                                <p class="fs-5">Maternity Leave</p>
-                                <p class="fs-5">Available :</p>
-                            </div>
-                            <i class="bi bi-heart fa-3x primary-text border rounded secondary-bg p-3"></i>
-                        </div>
-                    </div>
+					<div class="col-md-3">
+						<div
+							class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
+							<div>
+								<p class="fs-5">Maternity Leave</p>
+								<p class="fs-5">Available :${employee.maternityleave}</p>
+							</div>
+							<i
+								class="bi bi-heart fa-3x primary-text border rounded secondary-bg p-3"></i>
+						</div>
+					</div>
 
-                    <div class="col-md-3">
-                        <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
-                            <div>
-                                <p class="fs-5">Paternity Leave</p>
-                                <p class="fs-5">Available :</p>
-                            </div>
+					<div class="col-md-3">
+						<div
+							class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
+							<div>
+								<p class="fs-5">Paternity Leave</p>
+								<p class="fs-5">Available :${employee.paternityleave}</p>
+							</div>
 
-                            <i class="bi bi-heart-pulse fa-3x primary-text border rounded secondary-bg p-3"></i>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
-                            <div>
-                                <p class="fs-5">Marriage Leave</p>
-                                <p class="fs-5">Available :</p>
-                            </div>
+							<i
+								class="bi bi-heart-pulse fa-3x primary-text border rounded secondary-bg p-3"></i>
+						</div>
+					</div>
+					<div class="col-md-3">
+						<div
+							class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
+							<div>
+								<p class="fs-5">Marriage Leave</p>
+								<p class="fs-5">Available :${employee.marriageleave}</p>
+							</div>
 
-                            <i class="bi bi-people fa-3x primary-text border rounded secondary-bg p-3"></i>
+							<i
+								class="bi bi-people fa-3x primary-text border rounded secondary-bg p-3"></i>
 
 
-                        </div>
+						</div>
 
-                    </div>
-                    <div class="col-md-3">
-                        <div class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
-                            <div>
-                                <p class="fs-5">Adoption Leave</p>
-                                <p class="fs-5">Available :</p>
-                            </div>
-                            <i class="bi bi-person-plus fa-3x primary-text border rounded secondary-bg p-3"></i>
 
-                        </div>
-                    </div>
-                </div>
+					</div>
+					<div class="col-md-3">
+						<div
+							class="p-3 bg-white shadow-sm d-flex justify-content-around align-items-center rounded">
+							<div>
+								<p class="fs-5">Adoption Leave</p>
+								<p class="fs-5">Available :${employee.adoptionleave}</p>
+							</div>
+							<i
+								class="bi bi-person-plus fa-3x primary-text border rounded secondary-bg p-3"></i>
+
+						</div>
+					</div>
+				</div>
                 <div class="row my-5">
                     <h3 class="fs-4 mb-3">Leave History</h3>
                     <div class="col">
-                        <table class="table bg-white rounded shadow-sm  table-hover">
-                            <thead>
+                       <table class="table bg-white rounded shadow-sm  table-hover">
+							<thead>
                                 <tr>
                                     <th scope="col">Sr. No</th>
                                     <th scope="col">Leave Type</th>
                                     <th scope="col">Start Date</th>
                                     <th scope="col">End Date</th>
                                     <th scope="col">Days Taken</th>
+                                    <th scope="col">Reason</th>
                                     <th scope="col">Status</th>
                                 </tr>
                             </thead>
+                            <c:forEach items="${leave}" var="leave">
                             <tbody>
                                 <tr>
-                                    <th scope="row">1</th>
-                                    <td>Sick Leave</td>
-                                    <td>02/5/2022</td>
-                                    <td>04/5/2022</td>
-                                    <td>3</td>
-                                    <td>Approved</td>
+                                
+                                    <th scope="row">${leave.id}</th>
+                                    <td>${leave.leaveType}</td>
+                                    <td>${leave.fromDate}</td>
+                                 <td>${leave.endDate}</td>
+                            	 <td>${leave.totalDays}</td> 
+                                    <td>${leave.reason}</td>
+                                    <td>${leave.status}</td>
+                                    
                                 </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>Casual Leave</td>
-                                    <td>02/6/2022</td>
-                                    <td>03/6/2022</td>
-                                    <td>1</td>
-                                    <td>Rejected</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">3</th>
-                                    <td>Adoption Leave</td>
-                                    <td>01/6/2022</td>
-                                    <td>12/7/2022</td>
-                                    <td>30</td>
-                                    <td>Approved</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">4</th>
-                                    <td>Marriage Leave</td>
-                                    <td>01/12/2022</td>
-                                    <td>19/12/2022</td>
-                                    <td>15</td>
-                                    <td>Rejected</td>
-                                </tr>
-
+                               
+								
                             </tbody>
-                        </table>
+                            </c:forEach>  
                     </div>
 
                 </div>

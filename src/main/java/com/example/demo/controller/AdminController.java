@@ -99,13 +99,27 @@ public class AdminController{
 		System.out.println(modelAndView);
 		return modelAndView;
 	}
+//	@RequestMapping("/viewApproveLeave")
+//	public String viewApproveLeave(HttpServletRequest request) {
+//		int id = Integer.parseInt(request.getParameter("id"));
+//		Employee employee = emprepo.getReferenceById(id);
+//		request.setAttribute("employee", employee);
+//		return "/Admin leave approve.jsp";
+//	}
+	
 	@RequestMapping("/viewApproveLeave")
-	public String viewApproveLeave(HttpServletRequest request) {
+	public String viewApproveLeaveManager(HttpServletRequest request) {
 		int id = Integer.parseInt(request.getParameter("id"));
 		Employee employee = emprepo.getReferenceById(id);
+		//List<Leave> leave = lrepo.findByRole("admin");leave.addAll(lrepo.findByRole("employee"));
+		//List<Leave> leave = lrepo.findByRoleAndStatus("manager", "pending");leave.addAll(lrepo.findByRoleAndStatus("employee", "pending"));
+		List<Leave> leave = lrepo.findByRoleAndStatusAndReportingmanager("manager", "pending", employee.getName());
+		request.setAttribute("leave", leave);
+		
 		request.setAttribute("employee", employee);
 		return "/Admin leave approve.jsp";
 	}
+	
 	@RequestMapping("/viewAddHoliday")
 	public String viewAddHoliday(HttpServletRequest request) {
 		int id = Integer.parseInt(request.getParameter("id"));
@@ -253,35 +267,7 @@ public class AdminController{
 				mv.addObject("employee",currentData);
 				session.invalidate();
 				return mv;
-			}
-
-//	@RequestMapping("/applyLeaveAdmin")
-//	public ModelAndView applyLeaveAdmin (@RequestParam("leavetype") String leaveType,@RequestParam("Total") String Total,HttpServletRequest request,HttpSession session,Employee emp) {
-//		ModelAndView mv = new ModelAndView();
-//		int totalDays = Integer.parseInt(Total);
-//		Employee employee = emprepo.getReferenceById(emp.getId());
-//		if (leaveType.equals("SickLeave")) {
-//		    employee.setSickleave(employee.getSickleave() - totalDays); //reduce the number of sick leave days
-//		} else if (leaveType.equals("CasualLeave")) {
-//			employee.setCasualleave(employee.getCasualleave() - totalDays); //reduce the number of casual leave days
-//		} else if (leaveType.equals("PersonalLeave")) {
-//			employee.setPersonalleave(employee.getPersonalleave() - totalDays); //reduce the number of personal leave days
-//		} else if (leaveType.equals("MaternityLeave")) {
-//			employee.setMaternityleave(employee.getMaternityleave() - totalDays); //reduce the number of maternity leave days
-//		} else if (leaveType.equals("PaternityLeave")) {
-//			employee.setPaternityleave(employee.getPaternityleave() - totalDays); //reduce the number of paternity leave days
-//		} else if (leaveType.equals("MarriageLeave")) {
-//			employee.setMarriageleave(employee.getMarriageleave() - totalDays); //reduce the number of marriage leave days
-//		} else if (leaveType.equals("AdoptionLeave")) {
-//			employee.setAdoptionleave(employee.getAdoptionleave() - totalDays); //reduce the number of adoption leave days
-//		}
-//
-//		emprepo.save(employee); 
-//		return new ModelAndView("redirect:/leaveform.jsp");
-//
-//	
-//}
-		
+			}	
 	
 	// add project 
  	 @RequestMapping("/addProject")

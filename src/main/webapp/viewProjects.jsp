@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -114,48 +115,39 @@
                 <div class="row my-5">
                     <h3 class="fs-4 mb-3">Projects</h3>
                     <div class="col">
-                        <table class="table bg-white rounded shadow-sm  table-hover">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Sr. No</th>
-                                    <th scope="col">Name</th>
-                                    <th scope="col">Assigned Team</th>
+                          <table class="table bg-white rounded shadow-sm  table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">Sr. No</th>
+                                <th scope="col">Project Name</th>
+                                <th scope="col">Assigned Manager</th>
+                                <th scope="col">Start Date</th>
+                                <th scope="col">End Date</th>
+                                <th scope="col">Description</th>
+                               
+                            </tr>
+                        </thead>
+                        <c:forEach items="${project}" var="project">
+						<tbody>
+							<tr>
+								<th scope="row">${project.id}</th>
+								<td>${project.projectname}</td>
+								<td>${project.assignedTeam}</td>
+								<td>${project.fromDate}</td>
+								<td>${project.toDate}</td>
+								<td>${project.description}</td>
+								
 
-                                    <th scope="col">Start Date</th>
-                                    <th scope="col">End Date</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Web project</td>
-                                    <td>Team1</td>
-                                    <td>02/5/2022</td>
-                                    <td>04/5/2022</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Web project</td>
-                                    <td>Team1</td>
-                                    <td>02/5/2022</td>
-                                    <td>04/5/2022</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Web project</td>
-                                    <td>Team1</td>
-                                    <td>02/5/2022</td>
-                                    <td>04/5/2022</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Web project</td>
-                                    <td>Team1</td>
-                                    <td>02/5/2022</td>
-                                    <td>04/5/2022</td>
-                                </tr>
 
-                            </tbody>
+							
+								
+
+							
+
+							</tr>
+
+						</tbody>
+					</c:forEach>
                         </table>
                     </div>
 

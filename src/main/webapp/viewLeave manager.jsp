@@ -18,38 +18,38 @@
         <!-- Sidebar -->
         <div class="bg-white" id="sidebar-wrapper">
             <div class="list-group list-group-flush my-3 mt-5">
-                <a href="Manager dashboard.html"
+               <a href="/managerDashboard?id=${employee.id}"
                     class="list-group-item list-group-item-action bg-transparent second-text active me-2"><i
                         class="fas fa-tachometer-alt "></i> Manager Dashboard</a>
 
                         
-                <a href="leaveform manager.html"
+                <a href="/viewLeaveformManager?id=${employee.id}"
                     class="list-group-item list-group-item-action bg-transparent second-text fw-bold me-2"><i
                         class="bi bi-house-add"></i> Apply Leave</a>
 
 
-                <a href="view holiday manager.html "
+                <a href="/viewHolidayManager?id=${employee.id}"
                     class="list-group-item list-group-item-action bg-transparent second-text fw-bold me-2"><i
                         class="bi bi-calendar-day"></i> View Holidays</a>
 
 
-                <a href="view Employee details Manager.html"
+                <a href="/viewEmployeeManager?id=${employee.id}"
                     class="list-group-item list-group-item-action bg-transparent second-text fw-bold me-2"><i
                         class="bi bi-person-plus"></i>
-                    View Employee </a>
+                     View Employee </a>
 
 
-                <a href="viewLeave manager.html"
+               <a href="/viewApproveLeaveManager?id=${employee.id}"
                     class="list-group-item list-group-item-action bg-transparent second-text fw-bold me-2"><i
                         class="bi bi-check2-circle"></i> Approve Leave</a>
 
 
-                <a href="viewProjects manager.html"
+                <a href="/viewProjectsManager?id=${employee.id}"
                     class="list-group-item list-group-item-action bg-transparent second-text fw-bold me-2"><i
                         class="bi bi-card-list "></i> View Projects</a>
 
 
-                <a href="resetpassword manager.html"
+                <a href="/viewResetPasswordManager?id=${employee.id}"
                     class="list-group-item list-group-item-action bg-transparent second-text fw-bold me-2"><i
                         class="bi bi-key-fill"></i> Reset Password</a>
 
@@ -79,9 +79,10 @@
                                 <i class="fas fa-user me-2"></i>Manager
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="managerProfile.html">Profile</a></l>
-                                <li><a class="dropdown-item" href="#">Logout</a></li>
-                            </ul>
+								<li><a class="dropdown-item"
+									href="ManagerProfile?id=${employee.id}">Profile</a></li>
+								<li><a class="dropdown-item" href="/logout">Logout</a></li>
+							</ul>
                         </li>
                     </ul>
                 </div>

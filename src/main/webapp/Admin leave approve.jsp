@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -110,53 +111,42 @@
             </nav>
 
             <div class="container-fluid px-4">
-
                 <div class="row my-5">
                     <h3 class="fs-4 mb-3">Leave Requests</h3>
                     <div class="col">
-                        <table class="table bg-white rounded shadow-sm  table-hover">
+                       <table class="table bg-white rounded shadow-sm  table-hover">
                             <thead>
                                 <tr>
-                                    <th scope="col">Sr. No</th>
+                               <th scope="col">Sr. No</th>
+                               		<th scope="col">Email</th>
                                     <th scope="col">Leave Type</th>
                                     <th scope="col">Start Date</th>
                                     <th scope="col">End Date</th>
-                                    <th></th>
-                                    <th></th>
+                                    <th scope="col">Days Taken</th>
+                                    <th scope="col">Reason</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col">Action</th>
                                 </tr>
                             </thead>
+                            <c:forEach items="${leave}" var="leave">
                             <tbody>
                                 <tr>
-                                    <th scope="row">1</th>
-                                    <td>Sick Leave</td>
-                                    <td>02/5/2022</td>
-                                    <td>04/5/2022</td>
-                                    <th scope="col"><button type="button"
-                                            class="btn btn-outline-success">Approve</button></th>
-                                    <th scope="col"><button type="button" class="btn btn-outline-danger">Reject</button>
-                                    </th>
-                                </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>Casual Leave</td>
-                                    <td>02/6/2022</td>
-                                    <td>03/6/2022</td>
-                                    <th scope="col"><button type="button"
-                                            class="btn btn-outline-success">Approve</button></th>
-                                    <th scope="col"><button type="button" class="btn btn-outline-danger">Reject</button>
-                                    </th>
-                                </tr>
-                                <tr>
-                                    <th scope="row">3</th>
-                                    <td>Adoption Leave</td>
-                                    <td>01/6/2022</td>
-                                    <td>12/7/2022</td>
-                                    <th scope="col"><button type="button"
-                                            class="btn btn-outline-success">Approve</button></th>
-                                    <th scope="col"><button type="button" class="btn btn-outline-danger">Reject</button>
-                                    </th>
-                                </tr>
-                                <tr>
+                                <th scope="row">${leave.id}</th>
+                                	 <th scope="row">${leave.email}</th>
+                                    
+                                    <td>${leave.leaveType}</td>
+                                    <td>${leave.fromDate}</td>
+                                 <td>${leave.endDate}</td>
+                            	 <td>${leave.totalDays}</td> 
+                                    <td>${leave.reason}</td>
+                                    <td>${leave.status}</td>
+                                    <td><a href="leaveRejectManager?id=${leave.id}"><button
+											type="button"
+											onclick="return confirm('Do you really want to reject the leave request?');"
+											class="btn btn-danger">REJECT</button></a></td>
+								<td><a href="leaveApproveManager?id=${leave.id}"><button
+											type="button" class="btn btn-primary">APPROVE</button></a></td>
+                                <!-- <tr>
                                     <th scope="row">4</th>
                                     <td>Marriage Leave</td>
                                     <td>01/12/2022</td>
@@ -165,9 +155,10 @@
                                             class="btn btn-outline-success">Approve</button></th>
                                     <th scope="col"><button type="button" class="btn btn-outline-danger">Reject</button>
                                     </th>
-                                </tr>
+                                </tr> -->
 
                             </tbody>
+                            </c:forEach>
                         </table>
                     </div>
 
